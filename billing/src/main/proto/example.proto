@@ -1,0 +1,83 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example;
+option java_package = "com.example";
+
+message TeamMemberRequest  {
+  string email = 1;
+}
+
+message TeamMemberResponse  {
+  uint64 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message TimeSheetResponsee{
+  uint64 id = 1;
+  string date = 2;
+  string description = 3;
+  float time = 4;
+  float overtime = 5;
+  Client client = 6;
+  Project project = 7;
+  Category category = 8;
+  int32 version = 9;
+}
+
+message Category{
+  uint64 id = 1;
+  string name = 2;
+  int32 version = 3;
+}
+
+enum Role {
+  ADMIN = 0;
+  WORKER = 1;
+}
+
+message TeamMember{
+  uint64 id = 1;
+  string username = 2;
+  int32 hoursPerWeek = 3;
+  string email = 4;
+  string password = 5;
+  bool status = 6;
+  bool archive = 7;
+  string role = 8;
+  int32 version = 9;
+}
+
+message Client{
+  uint64 id = 1;
+  string name = 2;
+  string address = 3;
+  string city = 4;
+  string zip = 5;
+  string country = 6;
+  int32 version = 7;
+}
+
+message Project{
+  uint64 id = 1;
+  string name = 2;
+  string description = 3;
+  bool status = 4;
+  bool archive = 5;
+  Client customer = 6;
+  TeamMember teamMember =7;
+  int32 version = 8;
+}
+
+message ListOfTimeSheets{
+  repeated TimeSheetResponsee timeSheets = 1;
+}
+
+message Empty{
+
+}
+
+service TeamMemberService  {
+  rpc getTeamMemberById(TeamMemberRequest) returns (TeamMemberResponse);
+  rpc getTimeSheets(Empty) returns (stream TimeSheetResponsee);
+}

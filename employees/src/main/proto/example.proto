@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example;
+option java_package = "com.example";
+
+message TeamMemberRequest  {
+  string email = 1;
+}
+
+message TeamMemberResponse  {
+  uint64 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+service TeamMemberService  {
+  rpc getTeamMemberById(TeamMemberRequest) returns (TeamMemberResponse);
+}

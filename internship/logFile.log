@@ -1,0 +1,9 @@
+Jul 22, 2022 10:47:08 AM com.example.internship.service.impl.UserDetailsServiceImpl loadUserByUsername
+INFO: Found team member with username: mare
+Jul 22, 2022 10:47:08 AM com.example.internship.service.impl.TeamMemberServiceImpl findByIdFromEmployees
+INFO: Found member in Employees with id: 11 and e-mail mare@gmail.com
+
+Jul 22, 2022 10:47:24 AM com.example.internship.service.impl.UserDetailsServiceImpl loadUserByUsername
+INFO: Found team member with username: mare
+Jul 22, 2022 10:47:24 AM com.example.internship.service.impl.TeamMemberServiceImpl findByIdFromEmployees
+INFO: Found member in Employees with id: 10 and e-mail pero@gmail.com
